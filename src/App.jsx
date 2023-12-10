@@ -1,5 +1,8 @@
+import TabButton from "./TabButton";
+import { useState } from "react";
 import { CORE_CONCEPTS } from "./data";
 const CoreConcepts = (concept) => {
+  
   return (
     <li>
       <img src={concept.image} alt={concept.title} />
@@ -8,11 +11,17 @@ const CoreConcepts = (concept) => {
     </li>
   );
 };
-const setSelectedExample = () => {
 
-};
 
 function App() {
+  const [selectedExample, setSelectedExample] = useState('Select any Tab');
+  const handleSelect = (prop) => {
+
+    setSelectedExample(prop);
+    console.log(selectedExample);
+  }
+
+
   return (
     <div>
       <header>
@@ -27,22 +36,28 @@ function App() {
       <main>
       <section id="core-concepts">
       <ul>
-      {CORE_CONCEPTS.map((concept) => ( <CoreConcepts {...concept} /> ))}
-      <CoreConcepts {...CORE_CONCEPTS[0]} />
-      <CoreConcepts {...CORE_CONCEPTS[1]} />
-      <CoreConcepts {...CORE_CONCEPTS[2]} />
-      <CoreConcepts {...CORE_CONCEPTS[3]} />
+      {CORE_CONCEPTS.map((concept) => ( <CoreConcepts key={concept.title} {...concept} /> ))}
+   
       </ul>
       </section>
         <h2>Time to get started!</h2>
         <section id="examples">
         <menu>
-        <TabButton onSelect={() => setSelectedExample('counter')}>Components</TabButton>
+
+        <TabButton onSelect={()=>handleSelect('components')}> Components</TabButton>
+        <TabButton onSelect={()=>handleSelect('jsx')}> JSX</TabButton>
+        <TabButton onSelect={()=>handleSelect('props')}> Prop</TabButton>
+        <TabButton onSelect={()=>handleSelect('state')}> State</TabButton>
+        
         </menu>
+        {selectedExample}
         </section>
       </main>
     </div>
+    
   );
+  
 }
+
 
 export default App;
