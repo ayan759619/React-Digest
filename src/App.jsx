@@ -4,13 +4,13 @@ import { CORE_CONCEPTS, EXAMPLES } from "./data";
 
 // let tabContent = <h1>Please Select a topic</h1>;
 
-const CoreConcepts = (concept) => {
-  
+const CoreConcepts = ({image,title,description}) => {
+     
   return (
     <li>
-      <img src={concept.image} alt={concept.title} />
-      <h3>{concept.title}</h3>
-      <p>{concept.description}</p>
+      <img src={image} alt={title} />
+      <h3>{title}</h3>
+      <p>{description}</p>
     </li>
   );
 };
@@ -50,6 +50,10 @@ function App() {
       <main>
       <section id="core-concepts">
       <ul>
+      {/* <CoreConcepts  {...CORE_CONCEPTS[0]} />
+      <CoreConcepts  {...CORE_CONCEPTS[1]} />
+      <CoreConcepts  {...CORE_CONCEPTS[2]} />
+      <CoreConcepts  {...CORE_CONCEPTS[3]} /> */}
       {CORE_CONCEPTS.map((concept) => ( <CoreConcepts key={concept.title} {...concept} /> ))}
    
       </ul>
