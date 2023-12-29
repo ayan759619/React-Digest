@@ -62,10 +62,10 @@ function App() {
         <section id="examples">
         <menu>
 
-        <TabButton onSelect={()=>handleSelect('components')} isSelected={selectedExample==="components"}> Components</TabButton>
-        <TabButton onSelect={()=>handleSelect('jsx')} isSelected={selectedExample==="jsx"}> JSX</TabButton>
-        <TabButton onSelect={()=>handleSelect('props')} isSelected={selectedExample==="props"}> Prop</TabButton>
-        <TabButton onSelect={()=>handleSelect('state')} isSelected={selectedExample==="state"}> State</TabButton>
+        <TabButton onClick={()=>handleSelect('components')} isSelected={selectedExample==="components"}> Components</TabButton>
+        <TabButton onClick={()=>handleSelect('jsx')} isSelected={selectedExample==="jsx"}> JSX</TabButton>
+        <TabButton onClick={()=>handleSelect('props')} isSelected={selectedExample==="props"}> Prop</TabButton>
+        <TabButton onClick={()=>handleSelect('state')} isSelected={selectedExample==="state"}> State</TabButton>
         
         </menu>
         {/* {selectedExample} */}
